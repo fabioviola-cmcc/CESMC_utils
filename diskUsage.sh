@@ -6,8 +6,14 @@
 #
 ################################################################
 
-DIVISION=opa
+DIVISION=opa; 
+
 FILESETS=(/users_home/$DIVISION /work/$DIVISION /data/$DIVISION)
+if [[ -z $1 ]]; then
+    user=$USER
+else
+    user=$1
+fi
 
 
 ###############################################################
@@ -16,11 +22,11 @@ FILESETS=(/users_home/$DIVISION /work/$DIVISION /data/$DIVISION)
 #
 ###############################################################
 
-echo "Disk occupation:"
+echo "Disk occupation for user $user:"
 
 for FS in ${FILESETS[*]} ; do
 
-    gpfsrepquota -f $FS | grep $USER | gawk '{
+    gpfsrepquota -f $FS | grep $user | gawk '{
     useless1=$1
     useless2=$2
     user=$3
