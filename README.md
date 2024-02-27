@@ -15,3 +15,13 @@ You will see the **your** disk occupation on home, work, or data filesets. If yo
 ```bash
 $ ./diskUsage.sh <username>
 ```
+
+## 2. Jobs monitor
+
+This script helps you check the memory efficiency of your jobs. It analyses the last n jobs (n specified by the users) where a memory requirement was set. Then, it compares the requested memory with the memory that was effectively used by the job. The average percentage of memory usage is shown.
+
+```bash
+$ ./jobsMon.sh <n>
+```
+
+If you want to check the memory usage of other users (why!?), add the username as a second parameter.
